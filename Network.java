@@ -57,7 +57,7 @@ public class Network {
      *  If any of the two names is not a user in this network,
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
-        if(getUser(name1) == null || (getUser(name2)) == null) {
+        if(getUser(name1) == null || (getUser(name2)) == null || name1 == name2) {
             return false;
         } else {
         if(getUser(name1).addFollowee(name2) == false) {
@@ -74,7 +74,7 @@ public class Network {
         User userMostMutuals = null;
         for(int i = 0; i < userCount; i++) {
             //don't want it to be comparing it to itself do we?
-            if(getUser(name) != users[i] && getUser(name).countMutual(users[i]) >= mostMutuals) {
+            if(getUser(name) != users[i] && getUser(name).countMutual(users[i]) > mostMutuals) {
                 mostMutuals = getUser(name).countMutual(users[i]);
                 userMostMutuals = users[i];
             }
@@ -123,7 +123,7 @@ public class Network {
     public String toString() {
        String ans = "Network:\n";
        for (int i = 0; i < userCount; i++) {
-        ans = ans + users[i].toString() + "\n";
+        ans = ans + users[i].toString() + " \n";
     }
     return ans.trim();
     }
