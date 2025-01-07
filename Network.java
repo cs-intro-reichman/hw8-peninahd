@@ -123,8 +123,8 @@ public class Network {
     public String toString() {
        String ans = "Network:\n";
        for (int i = 0; i < userCount; i++) {
-        ans = ans + users[i] + "\n";
+        ans = ans + users[i].toString() + "\n";
     }
-    return ans;
+    return ans.trim();
     }
 }
