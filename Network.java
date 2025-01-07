@@ -74,7 +74,7 @@ public class Network {
         User userMostMutuals = null;
         for(int i = 0; i < userCount; i++) {
             //don't want it to be comparing it to itself do we?
-            if(getUser(name) != users[i] && getUser(name).countMutual(users[i]) > mostMutuals) {
+            if(getUser(name) != users[i] && getUser(name).countMutual(users[i]) > mostMutuals) { //changed from >=
                 mostMutuals = getUser(name).countMutual(users[i]);
                 userMostMutuals = users[i];
             }
@@ -85,6 +85,10 @@ public class Network {
     /** Computes and returns the name of the most popular user in this network: 
      *  The user who appears the most in the follow lists of all the users. */
     public String mostPopularUser() {
+        //returns null in an empty network
+        if (users[0] == null) {
+            return null;
+        }
         int numFollowers[] = new int[userCount];
         //iterate through each user to determine how many users follow them
         //save it into the array that tracks followers
@@ -99,7 +103,7 @@ public class Network {
         int max = 0;
         User mostFollowers = null; 
         for (int k = 0; k < userCount; k++) {
-            if (numFollowers[k] >= max) {
+            if (numFollowers[k] > max) { //changed from >=
                 max = numFollowers[k];
                 mostFollowers = users[k];
             }
@@ -125,6 +129,6 @@ public class Network {
        for (int i = 0; i < userCount; i++) {
         ans = ans + users[i].toString() + " \n";
     }
-    return ans.trim();
+    return ans;
     }
 }
