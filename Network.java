@@ -129,6 +129,6 @@ public class Network {
        for (int i = 0; i < userCount; i++) {
             ans = ans + users[i].toString() + "\n";
         }
-        return ans;
+        return ans.substring(0, ans.length() - 1);
     }
 }
