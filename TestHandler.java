@@ -155,11 +155,11 @@ public class TestHandler {
         String expected = "true";
         String actual = "";
         try {
-            actual += alice.follows("baz");
+            actual += alice.follows("Baz");
         } catch (Exception e) {
             actual = TesterMessagesEnum.ERROR + e.getMessage();
         }
-        return this.tester.test("Alice getting started = true, checks follows baz", expected, actual);
+        return this.tester.test("Alice getting started = true, checks follows Baz", expected, actual);
     }
 
     public boolean followsTest4(){
