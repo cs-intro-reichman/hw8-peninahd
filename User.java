@@ -54,12 +54,11 @@
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
-        String upperName = name.toUpperCase();
-        if(follows(upperName) || fCount == maxfCount) {
+        if(follows(name) || follows(name.toUpperCase()) || fCount == maxfCount) {
             return false;
         } else {
         //inserts the new name into the array at the first null element
-        follows[fCount] = upperName;
+        follows[fCount] = name;
         fCount++;  
         return true;  
         }
