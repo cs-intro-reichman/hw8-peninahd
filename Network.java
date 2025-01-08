@@ -130,6 +130,8 @@ public class Network {
             ans = ans + users[i].toString();
             if (i < userCount - 1) {
                 ans = ans + " \n";
+            } else {
+                ans = ans + " " + "\"";
             }
         }
     return ans;
